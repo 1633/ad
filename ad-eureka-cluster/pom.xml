@@ -32,7 +32,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.imooc.ad.EurekaApplication</mainClass>
+                    <mainClass>com.imooc.ad.EurekaClusterApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -22,6 +22,7 @@
         <module>ad-eureka</module>
         <module>ad-eureka-cluster</module>
         <module>ad-gateway</module>
+        <module>ad-service</module>
     </modules>
 
     <!-- 使用到的依赖的版本信息 -->
