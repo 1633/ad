@@ -1,0 +1,63 @@
+# 服务名称 需要在host中将127.0.0.1分别指向三个机器名
+spring:
+  application:
+    name: ad-eureka-cluster
+  profiles: server1
+
+# 服务端口
+server:
+  port: 8000
+
+# eureka注册信息
+eureka:
+  instance:
+    hostname: server1
+    prefer-ip-address: false
+  # 集群配置信息
+  client:
+    service-url:
+      defaultZone: http://server2:8001/eureka/, http://server3:8002/eureka/
+
+# 三个横杠代表yaml的分隔符
+---
+# 服务名称 需要在host中将127.0.0.1分别指向三个机器名
+spring:
+  application:
+    name: ad-eureka-cluster
+  profiles: server2
+
+# 服务端口
+server:
+  port: 8001
+
+# eureka注册信息
+eureka:
+  instance:
+    hostname: server2
+    prefer-ip-address: false
+  # 集群配置信息
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/, http://server3:8002/eureka/
+
+# 三个横杠代表yaml的分隔符
+---
+# 服务名称 需要在host中将127.0.0.1分别指向三个机器名
+spring:
+  application:
+    name: ad-eureka-cluster
+  profiles: server3
+
+# 服务端口
+server:
+  port: 8002
+
+# eureka注册信息
+eureka:
+  instance:
+    hostname: server3
+    prefer-ip-address: false
+  # 集群配置信息
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/, http://server2:8001/eureka/

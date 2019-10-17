@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ag-gateway
+
+server:
+  port: 9000
+
+# 将网关服务注册到eureka注册中心，实现请求分发
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8000/eureka/

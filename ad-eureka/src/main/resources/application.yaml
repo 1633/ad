@@ -1,0 +1,19 @@
+# 服务名称
+spring:
+  application:
+    name: ad-eureka
+
+# 服务端口
+server:
+  port: 8000
+
+# eureka注册信息
+eureka:
+  instance:
+    hostname: localhost
+  # 集群配置信息
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
