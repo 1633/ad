@@ -9,8 +9,13 @@ import lombok.Getter;
  */
 @Getter
 public enum CommonStatus {
-
+    /**
+     * 有效状态
+     */
     VALID(1, "有效状态"),
+    /**
+     * 无效状态
+     */
     INVALID(0, "无效状态");
     /**
      * 状态值

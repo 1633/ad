@@ -19,6 +19,7 @@ spring:
     # 懒加载相关的 怕出现bean装配找不到的问题 所以设置为false
     open-in-view: false
   datasource:
+    # 数据库名称是 imooc_ad_data
     url: jdbc:mysql://192.168.169.129:3306/immoc_ad_data?autoReconnect=true
     username: root
     password: yijialu7

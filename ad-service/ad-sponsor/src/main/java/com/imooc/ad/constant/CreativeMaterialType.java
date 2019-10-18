@@ -9,14 +9,33 @@ import lombok.Getter;
  */
 @Getter
 public enum CreativeMaterialType {
-
+    /**
+     * jpg
+     */
     JPG(1, "jpg"),
+    /**
+     * bmp
+     */
     BMP(2, "bmp"),
+    /**
+     * mp4
+     */
     MP4(3, "mp4"),
+    /**
+     * avi
+     */
     AVI(4, "avi"),
+    /**
+     * txt
+     */
     TXT(5, "txt");
-
+    /**
+     * 类型
+     */
     private Integer type;
+    /**
+     * 描述
+     */
     private String desc;
 
     CreativeMaterialType(Integer type, String desc) {
