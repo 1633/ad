@@ -18,7 +18,7 @@ public interface AdPlanRepository extends JpaRepository<AdPlan, Long> {
      * @param userId
      * @return
      */
-    AdPlan findAdPlansByIdAndUserId(Long id, Long userId);
+    AdPlan findAdPlanByIdAndUserId(Long id, Long userId);
 
     /**
      * 通过计划id列表和用户id查询
