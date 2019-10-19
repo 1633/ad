@@ -24,3 +24,12 @@ zuul:
       # 不跳过前缀 即保留 /ad-sponsor 这截信息
       strip-prefix: false
       # 例子：http://server1:9000/seven/ad-sponsor/user ——》 http://server1:7000/ad-sponsor/user
+
+      # 服务的别名
+      search:
+        # 带这个path就会转发到服务对应 /** 的controller方法下
+        path: /ad-search/**
+        # 指定注册中心里的服务名称
+        serviceId: eureka-client-ad-search
+        # 不跳过前缀 即保留 /ad-search 这截信息
+        strip-prefix: false
