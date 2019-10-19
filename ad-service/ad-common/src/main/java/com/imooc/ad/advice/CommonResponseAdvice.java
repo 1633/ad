@@ -64,6 +64,7 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
         } else if (body instanceof CommonResponse) {
             returnResponse = (CommonResponse<Object>) body;
         } else {
+            returnResponse.setMessage("请求处理成功~");
             returnResponse.setData(body);
         }
 
