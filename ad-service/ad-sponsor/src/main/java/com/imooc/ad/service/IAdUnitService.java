@@ -9,6 +9,8 @@ import com.imooc.ad.vo.AdUnitKeywordRequest;
 import com.imooc.ad.vo.AdUnitKeywordResponse;
 import com.imooc.ad.vo.AdUnitRequest;
 import com.imooc.ad.vo.AdUnitResponse;
+import com.imooc.ad.vo.CreativeUnitRequest;
+import com.imooc.ad.vo.CreativeUnitResponse;
 
 /**
  * @author Seven
@@ -51,5 +53,14 @@ public interface IAdUnitService {
      * @throws AdException
      */
     AdUnitDistrictResponse createUnitDistrict(AdUnitDistrictRequest request) throws AdException;
+
+    /**
+     * 创建创意与推广单元的中间表
+     *
+     * @param request
+     * @return
+     * @throws AdException
+     */
+    CreativeUnitResponse createCreativeUnit(CreativeUnitRequest request) throws AdException;
 
 }
