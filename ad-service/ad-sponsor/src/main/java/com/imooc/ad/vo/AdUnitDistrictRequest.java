@@ -1,0 +1,33 @@
+package com.imooc.ad.vo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+/**
+ * @author Seven
+ * @date 2019/10/19 1:48
+ * @description 对应请求的封装对象 @RequestBody
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AdUnitDistrictRequest {
+
+    private List<UnitDistrict> unitDistricts;
+
+    /**
+     * 允许批量创建地域信息
+     */
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class UnitDistrict {
+        private Long unitId;
+        private String province;
+        private String city;
+    }
+
+}
