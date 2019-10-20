@@ -21,13 +21,13 @@ public interface AdPlanRepository extends JpaRepository<AdPlan, Long> {
     AdPlan findAdPlanByIdAndUserId(Long id, Long userId);
 
     /**
-     * 通过计划id列表和用户id查询
+     * 通过计划id列表和用户id查询 用 in 关键字标识在集合中
      *
      * @param ids
      * @param userId
      * @return
      */
-    List<AdPlan> findAllByIdAndUserId(List<Long> ids, Long userId);
+    List<AdPlan> findAllByIdInAndUserId(List<Long> ids, Long userId);
 
     /**
      * 通过用户id和计划名称查询唯一计划

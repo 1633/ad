@@ -29,10 +29,10 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
     @SuppressWarnings("all")
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
         // 判断 类与方法 上是否有要忽略的自定义注解
-        if (returnType.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
+        if (!returnType.getDeclaringClass().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return true;
         }
-        if (returnType.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
+        if (!returnType.getMethod().isAnnotationPresent(IgnoreResponseAdvice.class)) {
             return true;
         }
 

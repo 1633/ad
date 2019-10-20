@@ -133,7 +133,7 @@ public class AdPlanServiceImpl implements IAdPlanService {
         if (!request.validate()) {
             throw new AdException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
-        List<AdPlan> list = planRepository.findAllByIdAndUserId(request.getIds(), request.getUserId());
+        List<AdPlan> list = planRepository.findAllByIdInAndUserId(request.getIds(), request.getUserId());
         return list;
     }
 }

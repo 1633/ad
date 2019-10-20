@@ -35,28 +35,28 @@ public class AdPlanOpController {
 
     @PostMapping("/ad-plan")
     public AdPlanResponse createAdPlan(@RequestBody AdPlanRequest request) throws AdException {
-        log.info("ad-plan: creator -> {}", JSON.toJSONString(request));
+        log.info("ad-pair: creator -> {}", JSON.toJSONString(request));
 
         return planService.createAdPlan(request);
     }
 
     @PostMapping("/ad-plans")
     public List<AdPlan> getAdPlanByIds(@RequestBody AdPlanGetRequest request) throws AdException {
-        log.info("ad-plan: getByIds -> {}", JSON.toJSONString(request));
+        log.info("ad-pair: getByIds -> {}", JSON.toJSONString(request));
 
         return planService.getAdPlanByIds(request);
     }
 
     @PutMapping("/ad-plan")
     public AdPlanResponse updateAdPlan(@RequestBody AdPlanRequest request) throws AdException {
-        log.info("ad-plan: update -> {}", JSON.toJSONString(request));
+        log.info("ad-pair: update -> {}", JSON.toJSONString(request));
 
         return planService.updateAdPlan(request);
     }
 
     @DeleteMapping("/ad-plan")
     public void deleteAdPlan(@RequestBody AdPlanRequest request) throws AdException {
-        log.info("ad-plan: delete -> {}", JSON.toJSONString(request));
+        log.info("ad-pair: delete -> {}", JSON.toJSONString(request));
 
         planService.deleteAdPlan(request);
     }

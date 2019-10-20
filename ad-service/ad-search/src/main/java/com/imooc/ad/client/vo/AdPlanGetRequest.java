@@ -16,7 +16,6 @@ import java.util.List;
 @AllArgsConstructor
 public class AdPlanGetRequest {
 
-//    private Long id;
     private List<Long> ids;
     private Long userId;
 }
