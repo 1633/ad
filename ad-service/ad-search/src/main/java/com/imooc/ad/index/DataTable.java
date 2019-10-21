@@ -41,7 +41,7 @@ public class DataTable implements ApplicationContextAware, PriorityOrdered {
     }
 
     @SuppressWarnings("all")
-    public static <T> T of(Class clazz) {
+    public static <T> T of(Class<T> clazz) {
         T instance = (T) DATA_TABLE_MAP.get(clazz);
         // 获取到了 直接返回
         if (instance != null) {
@@ -61,7 +61,7 @@ public class DataTable implements ApplicationContextAware, PriorityOrdered {
     }*/
 
     @SuppressWarnings("all")
-    private static <T> T bean(Class clazz) {
+    private static <T> T bean(Class<T> clazz) {
         return (T) applicationContext.getBean(clazz);
     }
 

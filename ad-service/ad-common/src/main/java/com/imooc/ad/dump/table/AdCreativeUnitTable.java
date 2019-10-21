@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AdCreativeUnitTable {
 
-    private Long creativeId;
     private Long unitId;
+    private Long creativeId;
 
 }

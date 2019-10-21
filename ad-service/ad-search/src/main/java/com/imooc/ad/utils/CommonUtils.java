@@ -22,4 +22,18 @@ public class CommonUtils {
         return map.computeIfAbsent(key, k -> factory.get());
     }
 
+    /**
+     * 拼接字符串 用横杠 - 连接 最后一个横杠去除
+     * @param args
+     * @return
+     */
+    public static String stringConcat(String... args) {
+        StringBuilder sb = new StringBuilder();
+        for (String arg : args) {
+            sb.append(arg).append("-");
+        }
+        sb.substring(0, sb.length() - 1);
+        return sb.toString();
+    }
+
 }
