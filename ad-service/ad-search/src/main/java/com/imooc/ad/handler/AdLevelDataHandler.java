@@ -196,7 +196,6 @@ public class AdLevelDataHandler {
         handleBinlogEvent(DataTable.of(UnitKeywordIndex.class), unitKeywordTable.getKeyword(), value, type);
     }
 
-
     /**
      * 监听Binlog日志的操作状态，对索引进行处理
      *
