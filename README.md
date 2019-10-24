@@ -1,3 +1,6 @@
+#### 2019-10-24:
+###### 1、将binlog数据信息转换为java实体类的逻辑编写(约85%)。
+
 #### 2019-10-23:
 ###### 1、用docker搭建了MySQL8从而解决docker的mysql5.7binlog没有开启的状态。
 ###### 2、编写监听binlog的带main函数的测试类BinlogServiceTest。

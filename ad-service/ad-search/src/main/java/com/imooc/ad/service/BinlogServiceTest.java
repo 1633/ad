@@ -11,6 +11,8 @@ import com.github.shyiko.mysql.binlog.event.WriteRowsEventData;
  * @date 2019/10/24 0:08
  * @description 测试 MySQL的Binlog 启动后可以监听数据库的binlog信息(数据库的增删改操作)
  * 新增信息：WriteRowsEventData{tableId=348, includedColumns={0, 1, 2}, rows=[[18, 3, OPPO]]}
+ * 更新信息：UpdateRowsEventData{tableId=94, includedColumnsBeforeUpdate={0, 1, 2}, includedColumns={0, 1, 2}, rows=[
+ *          {before=[18, 3, OPPO], after=[18, 3, FindOne]}]}
  */
 public class BinlogServiceTest {
 
