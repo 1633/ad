@@ -45,3 +45,13 @@ management:
     web:
       exposure:
         include: "*"
+
+# binlog监听的配置信息
+adconf:
+  mysql:
+    host: 192.168.169.129
+    port: 3306
+    username: root
+    password: yijialu7
+    binlogName: ""
+    position: -1
