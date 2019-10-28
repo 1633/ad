@@ -55,3 +55,5 @@ adconf:
     password: yijialu7
     binlogName: ""
     position: -1
+  kafka:
+    topic: ad-search-mysql-data

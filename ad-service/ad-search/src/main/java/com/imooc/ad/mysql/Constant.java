@@ -1,7 +1,5 @@
 package com.imooc.ad.mysql;
 
-import jdk.internal.dynalink.beans.StaticClass;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +19,7 @@ public class Constant {
      */
     public static class AD_PLAN_TABLE_INFO {
         public static final String TABLE_NAME = "ad_plan";
+        public static final String COLUMN_ID = "id";
         public static final String COLUMN_USER_ID = "user_id";
         public static final String COLUMN_PLAN_STATUS = "plan_status";
         public static final String COLUMN_START_DATE = "start_date";
@@ -32,7 +31,7 @@ public class Constant {
      */
     public static class AD_CREATIVE_TABLE_INFO {
         public static final String TABLE_NAME = "ad_creative";
-        public static final String column_id = "id";
+        public static final String COLUMN_ID = "id";
         public static final String COLUMN_TYPE = "type";
         public static final String COLUMN_MATERIAL_TYPE = "material_type";
         public static final String COLUMN_HEIGHT = "height";
@@ -44,7 +43,7 @@ public class Constant {
     /**
      * 推广单元表
      */
-    public static class AU_UNIT_TABLE_INFO {
+    public static class AD_UNIT_TABLE_INFO {
         public static final String TABLE_NAME = "ad_unit";
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_UNIT_STATUS = "unit_status";
@@ -94,7 +93,7 @@ public class Constant {
         TABLE2DB = new HashMap<>();
         TABLE2DB.put(AD_PLAN_TABLE_INFO.TABLE_NAME, DB_NAME);
         TABLE2DB.put(AD_CREATIVE_TABLE_INFO.TABLE_NAME, DB_NAME);
-        TABLE2DB.put(AU_UNIT_TABLE_INFO.TABLE_NAME, DB_NAME);
+        TABLE2DB.put(AD_UNIT_TABLE_INFO.TABLE_NAME, DB_NAME);
         TABLE2DB.put(AD_CREATIVE_UNIT_TABLE_INFO.TABLE_NAME, DB_NAME);
         TABLE2DB.put(AD_UNIT_DISTRICT_TABLE_INFO.TABLE_NAME, DB_NAME);
         TABLE2DB.put(AD_UNIT_IT_TABLE_INFO.TABLE_NAME, DB_NAME);

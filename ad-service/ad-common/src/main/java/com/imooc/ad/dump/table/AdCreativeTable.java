@@ -16,6 +16,7 @@ public class AdCreativeTable {
 
     private Long adId;
     private String name;
+    private Integer type;
     private Integer materialType;
     private Integer height;
     private Integer width;
