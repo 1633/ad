@@ -2,9 +2,16 @@ package com.imooc.ad.index.pair;
 
 import com.imooc.ad.index.IndexAware;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -23,6 +30,31 @@ public class AdUnitIndex implements IndexAware<Long, AdUnitObject> {
     static {
         // 线程安全的map存储对象
         objectMap = new ConcurrentHashMap<>();
+    }
+
+    public Set<Long> match(Integer positionType) {
+        final HashSet<Long> adUnitIds = new HashSet<>();
+        objectMap.forEach((k, v) -> {
+            if (AdUnitObject.isAdSlotTypeOk(positionType, v.getPositionType())) {
+                adUnitIds.add(k);
+            }
+        });
+        return adUnitIds;
+    }
+
+    public List<AdUnitObject> fetch(Collection<Long> adUnitIds) {
+        if (CollectionUtils.isEmpty(adUnitIds)) {
+            return Collections.emptyList();
+        }
+        final ArrayList<AdUnitObject> result = new ArrayList<>();
+        adUnitIds.forEach(au -> {
+            final AdUnitObject object = get(au);
+            if (null == object) {
+                log.error("AdUnitObject not found: {}", au);
+            }
+            result.add(object);
+        });
+        return result;
     }
 
     @Override
