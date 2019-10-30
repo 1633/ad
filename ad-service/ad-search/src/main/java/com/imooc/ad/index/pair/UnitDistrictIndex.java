@@ -1,6 +1,7 @@
 package com.imooc.ad.index.pair;
 
 import com.imooc.ad.index.IndexAware;
+import com.imooc.ad.search.vo.feature.DistrictFeature;
 import com.imooc.ad.utils.CommonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -13,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.Collectors;
 
 /**
  * @author Seven
@@ -89,12 +91,12 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
     }
 
     /**
-     * 判断传入的关键词组是否存在
+     * 判断传入的关键词组是否存在 该方法暂时没用
      * @param unitId
      * @param district
      * @return
      */
-    public boolean match(Long unitId, List<String> district) {
+    public boolean match1(Long unitId, List<String> district) {
         // 判断倒排索引存储中是否存在推广单元id 且 value值不为空
         if (unitDistrictMap.containsKey(unitId) && CollectionUtils.isNotEmpty(unitDistrictMap.get(unitId))) {
             Set<String> unitDistrict = unitDistrictMap.get(unitId);
@@ -102,6 +104,16 @@ public class UnitDistrictIndex implements IndexAware<String, Set<Long>> {
             return CollectionUtils.isSubCollection(district, unitDistrict);
         }
 
+        return false;
+    }
+
+    public boolean match(Long adUnitId, List<DistrictFeature.ProvinceAndCity> districts) {
+        if (unitDistrictMap.containsKey(adUnitId) && CollectionUtils.isNotEmpty(unitDistrictMap.get(adUnitId))) {
+            final Set<String> unitDistricts = unitDistrictMap.get(adUnitId);
+            final List<String> targetDistricts = districts.stream().map(d ->
+                    CommonUtils.stringConcat(d.getProvince(), d.getCity())).collect(Collectors.toList());
+            return CollectionUtils.isSubCollection(targetDistricts, unitDistricts);
+        }
         return false;
     }
 

@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -91,6 +94,20 @@ public class CreativeUnitIndex implements IndexAware<String, CreativeUnitObject>
         }
 
         log.info("after delete: {}", objectMap);
+    }
+
+    public List<Long> selectAds(List<AdUnitObject> unitObjects) {
+        if (CollectionUtils.isEmpty(unitObjects)) {
+            return Collections.emptyList();
+        }
+        final ArrayList<Long> result = new ArrayList<>();
+        for (AdUnitObject unitObject : unitObjects) {
+            final Set<Long> adIds = unitCreativeMap.get(unitObject.getUnitId());
+            if (!CollectionUtils.isEmpty(adIds)) {
+                result.addAll(adIds);
+            }
+        }
+        return result;
     }
     
 }
