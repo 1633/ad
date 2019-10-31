@@ -19,6 +19,7 @@ import com.imooc.ad.search.vo.feature.FeatureRelation;
 import com.imooc.ad.search.vo.feature.ItFeature;
 import com.imooc.ad.search.vo.feature.KeywordFeature;
 import com.imooc.ad.search.vo.media.AdSlot;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,18 @@ import java.util.Set;
 @Slf4j
 @Service
 public class SearchImpl implements ISearch {
+    /**
+     * 定义了fetchAds的断路器方法 结合启动类上的注解@EnableCircuitBreaker 反射是效率很低的
+     * @param request
+     * @param e
+     * @return
+     */
+    public SearchResponse fetchAdsFallback(SearchRequest request, Throwable e) {
+        return new SearchResponse();
+    }
 
     @Override
+    @HystrixCommand(fallbackMethod = "fetchAdsFallback")
     public SearchResponse fetchAds(SearchRequest request) {
         // 请求的广告位信息
         final List<AdSlot> adSlots = request.getRequestInfo().getAdSlots();
