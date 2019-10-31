@@ -22,6 +22,8 @@ public class MyProducer {
         properties.put("bootstrap.servers", "192.168.169.129:9092");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        // 指定自定义的分区器
+        properties.put("partitioner.class", "com.imooc.ad.partitioner.CustomPartitioner");
         producer = new KafkaProducer<String, String>(properties);
     }
 
@@ -55,6 +57,23 @@ public class MyProducer {
         final ProducerRecord<String, String> record = new ProducerRecord<>(
                 "kafka-example", "name", value + "callback");
         producer.send(record, new MyProducerCallback());
+
+        final ProducerRecord<String, String> record1 = new ProducerRecord<>(
+                "kafka-example", "name-x", value + "callback");
+        producer.send(record1, new MyProducerCallback());
+
+        final ProducerRecord<String, String> record2 = new ProducerRecord<>(
+                "kafka-example", "name-y", value + "callback");
+        producer.send(record2, new MyProducerCallback());
+
+        final ProducerRecord<String, String> record3 = new ProducerRecord<>(
+                "kafka-example", "name-z", value + "callback");
+        producer.send(record3, new MyProducerCallback());
+
+        final ProducerRecord<String, String> record4 = new ProducerRecord<>(
+                "kafka-example", "name-done", "done");
+        producer.send(record4, new MyProducerCallback());
+
         producer.close();
     }
 
