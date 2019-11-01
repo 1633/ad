@@ -33,6 +33,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://server1:8000/eureka
+    # 如果是测试则改为false 这样测试环境不用注册到注册中心
+    enabled: true
 
 # 开启断路器功能
 feign:
